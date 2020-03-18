@@ -21,8 +21,9 @@
       &__icons {
         display: flex;
         &__heart {
+          width: 35px;
+          text-align: left;
           color: pink;
-          padding-right: 10px;
         }
         &__star {
           color: yellow;

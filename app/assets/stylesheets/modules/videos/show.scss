@@ -18,8 +18,16 @@
           display: flex;
           
           &__heart {
+            width: 50px;
+            text-align: left;
             color: pink;
-            padding-right: 10px;
+            a {
+              color: pink;
+            }
+            a:hover {
+              text-decoration: none;
+              color: pink;
+            }
           }
           &__star {
             color: yellow;
