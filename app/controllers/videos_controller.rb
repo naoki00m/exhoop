@@ -15,6 +15,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @like = Like.new
   end
 
   def edit

@@ -8,8 +8,16 @@
               = @video.name
             .content__show__box__top__icons
               .content__show__box__top__icons__heart
-                = icon('far', 'heart')
-                = '9999'
+                - if user_signed_in? 
+                  - if current_user.already_liked?(@video)
+                    = link_to video_like_path(@video), method: :delete do
+                      = icon('fa', 'heart', class: 'content__show__box__top__icons__heart__already')
+                  - else
+                    = link_to video_likes_path(@video), method: :post do
+                      = icon('far', 'heart', class: 'content__show__box__top__icons__heart__yet')
+                - else
+                  = icon('far', 'heart', class: 'content__show__box__top__icons__heart__yet')
+                = @video.likes.count
               .content__show__box__top__icons__star
                 = icon('fas', 'star')
                 = '4.5'

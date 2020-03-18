@@ -7,8 +7,11 @@
             = video.name
           .content__box__top__icons
             .content__box__top__icons__heart
-              = icon('far', 'heart')
-              = '9999'
+              - if user_signed_in? && current_user.already_liked?(video)
+                = icon('fa', 'heart', class: 'content__box__top__icons__heart__already')
+              - else
+                = icon('far', 'heart', class: 'content__box__top__icons__heart__yet')
+              = video.likes.count
             .content__box__top__icons__star
               = icon('fas', 'star')
               = '4.5'
