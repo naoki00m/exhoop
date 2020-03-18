@@ -1,0 +1,20 @@
+.container
+  .row
+    - @videos.each do |video|
+      .content__box
+        .content__box__top
+          .content__box__top__title
+            = video.name
+          .content__box__top__icons
+            .content__box__top__icons__heart
+              = icon('far', 'heart')
+              = '9999'
+            .content__box__top__icons__star
+              = icon('fas', 'star')
+              = '4.5'
+        .content__box__video
+          = link_to "/videos/#{video.id}" do
+            = video_tag video.work.url, autoplay: true, loop: true, muted: true, width: '100%'
+        .content__box__user
+          = link_to "/users/#{video.user.id}" do
+            = video.user.name # 投稿したuserのページにリンク

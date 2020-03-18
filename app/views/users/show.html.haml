@@ -1,0 +1,20 @@
+.content
+  .userbox
+    .userbox__top
+      .userbox__top__left
+        .userbox__top__left__icon
+      .userbox__top__right
+        .userbox__top__right__name
+          = @name # userのname
+        .userbox__top__right__option
+          - if user_signed_in? && current_user.id == @id
+            .userbox__top__right__option__edit
+              = link_to edit_user_path(current_user) do
+                = icon('fa', 'edit')
+                = 'Edit'
+            .userbox__top__right__option__logout
+              = link_to destroy_user_session_path, method: :delete  do
+                = icon('fa', 'sign-out-alt')
+                = 'Logout'
+    .userbox__bottom
+  = render partial: "videos/video", locals: { video: @video }

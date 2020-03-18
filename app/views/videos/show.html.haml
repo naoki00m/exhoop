@@ -1,0 +1,116 @@
+.content
+  .content__show
+    .container
+      .row
+        .content__show__box
+          .content__show__box__top
+            .content__show__box__top__title
+              = @video.name
+            .content__show__box__top__icons
+              .content__show__box__top__icons__heart
+                = icon('far', 'heart')
+                = '9999'
+              .content__show__box__top__icons__star
+                = icon('fas', 'star')
+                = '4.5'
+          .content__show__box__video
+            = video_tag @video.work.url, autoplay: true, loop: true, muted: true, width: '100%'
+          .content__show__box__bottom
+            .content__show__box__bottom__icons
+              - if user_signed_in? && current_user.id == @video.user.id
+                .content__show__box__bottom__icons__edit
+                  = link_to "/videos/#{@video.id}/edit", method: :get do
+                    = icon('fa', 'edit')
+                .content__show__box__bottom__icons__delete
+                  = link_to "/videos/#{@video.id}", method: :delete do
+                    = icon('fa', 'trash-alt')
+            .content__show__box__bottom__user
+              = link_to "/users/#{@video.user.id}" do
+                = @video.user.name # 投稿したuserのページにリンク
+          .content__show__box__overview
+            .content__show__box__overview__top
+              = 'Description'
+            .content__show__box__overview__bottom
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+        .content__show__comment
+          .content__show__comment__top
+            = 'Comment'
+            .content__show__comment__top__icons
+              = icon('fa', 'comment-dots')
+              .content__show__comment__top__icons__text
+                = 'Add'
+          .content__show__comment__bottom
+            .content__show__comment__bottom__top
+              .content__show__comment__bottom__top__user
+                = 'Naoki'
+              .content__show__comment__bottom__top__icons
+                .content__show__comment__bottom__top__icons__edit
+                  = link_to '#' do
+                    = icon('fa', 'edit')
+                .content__show__comment__bottom__top__icons__delete
+                  = link_to '#' do
+                    = icon('fa', 'trash-alt')
+            .content__show__comment__bottom__star
+              = '★★★★★'
+            .content__show__comment__bottom__text
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            .content__show__comment__bottom__top
+              .content__show__comment__bottom__top__user
+                = 'Naoki'
+              .content__show__comment__bottom__top__icons
+                .content__show__comment__bottom__top__icons__edit
+                  = link_to '#' do
+                    = icon('fa', 'edit')
+                .content__show__comment__bottom__top__icons__delete
+                  = link_to '#' do
+                    = icon('fa', 'trash-alt')
+            .content__show__comment__bottom__star
+              = '★★★★★'
+            .content__show__comment__bottom__text
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            .content__show__comment__bottom__top
+              .content__show__comment__bottom__top__user
+                = 'Naoki'
+              .content__show__comment__bottom__top__icons
+                .content__show__comment__bottom__top__icons__edit
+                  = link_to '#' do
+                    = icon('fa', 'edit')
+                .content__show__comment__bottom__top__icons__delete
+                  = link_to '#' do
+                    = icon('fa', 'trash-alt')
+            .content__show__comment__bottom__star
+              = '★★★★★'
+            .content__show__comment__bottom__text
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            .content__show__comment__bottom__top
+              .content__show__comment__bottom__top__user
+                = 'Naoki'
+              .content__show__comment__bottom__top__icons
+                .content__show__comment__bottom__top__icons__edit
+                  = link_to '#' do
+                    = icon('fa', 'edit')
+                .content__show__comment__bottom__top__icons__delete
+                  = link_to '#' do
+                    = icon('fa', 'trash-alt')
+            .content__show__comment__bottom__star
+              = '★★★★★'
+            .content__show__comment__bottom__text
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            .content__show__comment__bottom__top
+              .content__show__comment__bottom__top__user
+                = 'Naoki'
+              .content__show__comment__bottom__top__icons
+                .content__show__comment__bottom__top__icons__edit
+                  = link_to '#' do
+                    = icon('fa', 'edit')
+                .content__show__comment__bottom__top__icons__delete
+                  = link_to '#' do
+                    = icon('fa', 'trash-alt')
+            .content__show__comment__bottom__star
+              = '★★★★★'
+            .content__show__comment__bottom__text
+              = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
+
+
+

@@ -1,0 +1,6 @@
+.content
+  .content__paginate
+    = paginate(@videos)
+  = render partial: "video", locals: { video: @video }
+  .content__paginate
+    = paginate(@videos)

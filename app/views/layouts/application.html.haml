@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Exhoop
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .header
+      .header__title
+        = link_to 'EXHOOP', root_path
+      .header__option
+        = link_to '#', class: 'header__option__search' do
+          = icon('fa', 'search', class: 'header__option__search__icon')
+          .header__option__search__text
+            = 'Search'
+        = link_to '/videos/new', class:'header__option__plus' do
+          = icon('fa', 'plus', class: 'header__option__plus__icon')
+          .header__option__plus__text
+            = 'New'
+        -if user_signed_in?
+          = link_to "/users/#{current_user.id}", class:'header__option__user' do
+            = icon('fa', 'user-circle', class: 'header__option__user__icon')
+            .header__option__user__text
+              = current_user.name
+        - else 
+          = link_to new_user_session_path, class:'header__option__user' do
+            = icon('fa', 'user-circle', class: 'header__option__user__icon')
+            .header__option__user__text
+              = 'User'
+    = yield
+    .footer
+      .footer__leftbox
+        .footer__leftbox__title
+          = 'EXHOOP'
+        .footer__leftbox__message
+          = 'message'
+        .footer__leftbox__icons
+          = link_to 'https://github.com/', class: 'github__icon', target: :blank do
+            = icon('fab', 'github')
+          = link_to 'https://twitter.com/', class: 'twitter__icon', target: :blank do
+            = icon('fab', 'twitter')
+          = link_to 'https://instagram.com/', class: 'instagram__icon', target: :blank do
+            = icon('fab', 'instagram')
+        .footer__leftbox__copyright
+          = '©️ 2020 - EXHOOP Inc.'
+      .footer__rightbox
+        .footer__rightbox__about
+          = 'About'
+        .footer__rightbox__help
+          = 'Help'

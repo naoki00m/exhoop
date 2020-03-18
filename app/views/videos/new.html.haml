@@ -1,0 +1,17 @@
+.content
+  .content__new
+    .content__new__text
+      = 'Upload'
+    = form_with model: @video, local: true do |f|
+      = f.text_field :name, class: 'form-control', placeholder: 'Title',  autocomplete: 'off'
+      .content__new__video
+      .content__new__btns
+        .content__new__btns__select
+          = f.label :work, class: "content__new__btns__select__image" do
+            = icon('fa', 'photo-video')
+            = 'Select'
+            = f.file_field :work, class: 'content__new__btns__select__file', style: 'display: none'
+        .content__new__btns__upload
+          = icon('fa', 'upload')
+          = 'Upload'
+          = f.submit 'Upload', class: 'content__new__btns__upload__submit'
