@@ -25,6 +25,7 @@ class VideosController < ApplicationController
   def update
     video = Video.find(params[:id])
     video.update(video_params)
+    redirect_to video_path(video.id)
   end
 
   def destroy
