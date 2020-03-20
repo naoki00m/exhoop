@@ -35,6 +35,9 @@
         }
       }
       &__video {
+        :focus {
+          outline: none;
+        }
       }
       &__bottom {
         display: flex;

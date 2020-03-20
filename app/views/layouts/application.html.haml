@@ -5,21 +5,22 @@
     %title Exhoop
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   %body
     .header
       .header__title
         = link_to 'EXHOOP', root_path
       .header__option
+        -if user_signed_in?
+          = link_to '/videos/new', class:'header__option__plus' do
+            = icon('fa', 'plus', class: 'header__option__plus__icon')
+            .header__option__plus__text
+              = 'New'
         = link_to '#', class: 'header__option__search' do
           = icon('fa', 'search', class: 'header__option__search__icon')
           .header__option__search__text
             = 'Search'
-        = link_to '/videos/new', class:'header__option__plus' do
-          = icon('fa', 'plus', class: 'header__option__plus__icon')
-          .header__option__plus__text
-            = 'New'
         -if user_signed_in?
           = link_to "/users/#{current_user.id}", class:'header__option__user' do
             = icon('fa', 'user-circle', class: 'header__option__user__icon')

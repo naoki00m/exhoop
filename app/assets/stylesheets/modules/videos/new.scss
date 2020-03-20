@@ -34,7 +34,9 @@
       margin: auto;
       background-color: black;
       margin-bottom: 10px;
-      
+      :focus {
+        outline: none;
+      }
     }
     &__btns {
       min-width: 300px;
@@ -46,19 +48,22 @@
         width: 80px;
         height: 27px;
         background-color: black;
-        margin-right: 20px;
+        margin-right: 15px;
         border: solid 1px rgb(150, 150, 150);
         border-radius: 5px;
-        cursor: pointer;
         position: relative;
+        font-size: 14px;
+        line-height: 24px;
         &__image {
           cursor: pointer;
-          font-size: 15px;
         }
         &__file {
           position: absolute;
           left: 0;
-          width: 80px;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0.01;
         }
       }
       &__upload {
@@ -67,16 +72,18 @@
         background-color: black;
         border: solid 1px rgb(150, 150, 150);
         border-radius: 5px;
-        cursor: pointer;
+        font-size: 14px;
+        line-height: 24px;
         position: relative;
         &__image {
           cursor: pointer;
-          font-size: 15px;
         }
         &__submit {
           position: absolute;
           left: 0;
-          width: 80px;
+          top: 0;
+          width: 100%;
+          height: 100%;
           opacity: 0;
         }
       }
