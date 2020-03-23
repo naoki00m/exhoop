@@ -1,14 +1,51 @@
 .account-page {
   height: 100%;
-  padding: 50px 0 50px 0;
+  padding: 50px 0;
   background-color: rgb(25, 25, 25);
   color: white;
+  margin: 0 auto;
   .account-page__inner {
-    margin: 60px auto;
+    margin: auto;
     padding: 60px;
     .account-page__inner--left, .account-page__inner--right {
-      float: left;
-      width: 50%;
+      width: 400px;
+      margin: auto;
+    }
+    &--icon {
+      margin-top: 30px;
+      &__label {
+        margin: auto;
+        display: none;
+      }
+      &__input {
+        margin: auto;
+        width: 180px;
+        height: 180px;
+        background-color: black;
+        border: solid 1px rgb(150, 150, 150);
+        border-radius: 100px;
+        overflow: hidden;
+        position: relative;
+        &__image {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &__image2 {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        &__btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 1000px;
+          height: 1000px;
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
     }
     &:after {
       clear: both;
@@ -41,8 +78,8 @@
     .btn {
       margin-top: 20px;
       color: #fff;
-      background-color: rgb(100, 100, 100);
-      font-size: 14px;
+      background-color: rgb(0, 200, 200);
+      font-size: 16px;
     }
   }
 
@@ -89,6 +126,17 @@
     text-align: center;
     border: none;
     border-radius: 2px;
+  }
+
+  textarea {
+    margin: auto;
+    width: 400px;
+    height: 150px;
+    background-color: black;
+    color: white;
+    border: solid 1px rgb(150, 150, 150);
+    border-radius: 5px;
+    padding: 10px;
   }
 
   input[type='submit'] {

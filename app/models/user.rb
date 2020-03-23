@@ -10,4 +10,7 @@ class User < ApplicationRecord
   def already_liked?(video)
     self.likes.exists?(video_id: video.id)
   end
+
+  validates :profile, length: { maximum: 250 }
+  mount_uploader :image, ImageUploader
 end

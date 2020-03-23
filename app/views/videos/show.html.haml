@@ -24,6 +24,16 @@
           .content__show__box__video
             = video_tag @video.work.url, autoplay: true, loop: true, controls: true, width: '100%'
           .content__show__box__bottom
+            .content__show__box__bottom__user
+              .content__show__box__bottom__user__icon
+                = link_to "/users/#{@video.user.id}" do
+                  - if @video.user.image.present?
+                    = image_tag @video.user.image.url, width: '100%'
+                  - else
+                    = image_tag '/default_user.jpg', width: '100%'
+              .content__show__box__bottom__user__name
+                = link_to "/users/#{@video.user.id}" do
+                  = @video.user.name # 投稿したuserのページにリンク
             .content__show__box__bottom__icons
               - if user_signed_in? && current_user.id == @video.user.id
                 .content__show__box__bottom__icons__edit
@@ -32,9 +42,6 @@
                 .content__show__box__bottom__icons__delete
                   = link_to "/videos/#{@video.id}", method: :delete do
                     = icon('fa', 'trash-alt')
-            .content__show__box__bottom__user
-              = link_to "/users/#{@video.user.id}" do
-                = @video.user.name # 投稿したuserのページにリンク
           .content__show__box__overview
             .content__show__box__overview__top
               = 'Description'
