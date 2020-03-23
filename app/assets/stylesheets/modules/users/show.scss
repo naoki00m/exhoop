@@ -1,18 +1,19 @@
 .content {
   .userbox {
     &__top {
-      height: 220px;
+      height: 210px;
       display: flex;
       padding: 0 10%;
       color: white;
       &__left {
         &__icon {
-          min-width: 180px;
-          min-height: 180px;
+          width: 180px;
+          height: 180px;
           background-color: black;
           border: solid 1px rgb(150, 150, 150);
-          border-radius: 180px;
+          border-radius: 100px;
           margin-right: 25px;
+          overflow: hidden;
         }
       }
       &__right {
@@ -38,6 +39,10 @@
             margin-left: 35px;
             border: solid 1px rgb(150, 150, 150);
             border-radius: 5px;
+            cursor: pointer;
+            &__btn {
+              height: 100%;
+            }
           }
           &__logout {
             width: 80px;
@@ -46,17 +51,26 @@
             background-color: black;
             border: solid 1px rgb(150, 150, 150);
             border-radius: 5px;
+            cursor: pointer;
+            &__btn {
+              height: 100%;
+            }
           }
         }
       }
     }
     &__bottom {
       margin: 0 10% 40px 10%;
-      width: 80%;
-      height: 80px;
-      background-color: black;
+      height: 90px;
+      background-color: rgb(15, 15, 15);
       border: solid 1px rgb(150, 150, 150);
       border-radius: 5px;
+      font-size: 15px;
+      overflow: scroll;
+      word-wrap:break-word;
+      padding: 10px;
+      color: white;
+      text-align: left;
     }
   }
 }

@@ -3,6 +3,10 @@
     .userbox__top
       .userbox__top__left
         .userbox__top__left__icon
+          -if @image.present?
+            = image_tag @image.url, width: '100%'
+          - else
+            = image_tag('/default_user.jpg', width: '100%')
       .userbox__top__right
         .userbox__top__right__name
           = @name # userのname
@@ -10,11 +14,14 @@
           - if user_signed_in? && current_user.id == @id
             .userbox__top__right__option__edit
               = link_to edit_user_path(current_user) do
-                = icon('fa', 'edit')
-                = 'Edit'
+                .userbox__top__right__option__edit__btn
+                  = icon('fa', 'edit')
+                  = 'Edit'
             .userbox__top__right__option__logout
               = link_to destroy_user_session_path, method: :delete  do
-                = icon('fa', 'sign-out-alt')
-                = 'Logout'
+                .userbox__top__right__option__logout__btn
+                  = icon('fa', 'sign-out-alt')
+                  = 'Logout'
     .userbox__bottom
+      = simple_format(@profile)
   = render partial: "videos/video", locals: { video: @video }
