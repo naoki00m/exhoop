@@ -6,9 +6,12 @@
           .content__show__box__top
             .content__show__box__top__title
               = @video.name
+              - if @video.tag.present?
+                = '/'
+                = @video.tag.name
             .content__show__box__top__icons
               .content__show__box__top__icons__heart
-                - if user_signed_in? 
+                - if user_signed_in?
                   - if current_user.already_liked?(@video)
                     = link_to video_like_path(@video), method: :delete do
                       = icon('fa', 'heart', class: 'content__show__box__top__icons__heart__already')
@@ -30,7 +33,7 @@
                   - if @video.user.image.present?
                     = image_tag @video.user.image.url, width: '100%'
                   - else
-                    = image_tag '/default_user.jpg', width: '100%'
+                    = image_tag '/uploads/default_user.jpg', width: '100%'
               .content__show__box__bottom__user__name
                 = link_to "/users/#{@video.user.id}" do
                   = @video.user.name # 投稿したuserのページにリンク
@@ -42,10 +45,10 @@
                 .content__show__box__bottom__icons__delete
                   = link_to "/videos/#{@video.id}", method: :delete do
                     = icon('fa', 'trash-alt')
-          .content__show__box__overview
-            .content__show__box__overview__top
+          .content__show__box__description
+            .content__show__box__description__top
               = 'Description'
-            .content__show__box__overview__bottom
+            .content__show__box__description__bottom
               = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
         .content__show__comment
           .content__show__comment__top

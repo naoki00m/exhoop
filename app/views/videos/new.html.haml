@@ -1,9 +1,10 @@
 .content
   .content__new
     .content__new__text
-      = 'Upload'
+      = 'New Video'
     = form_with model: @video, local: true do |f|
       = f.text_field :name, class: 'form-control', placeholder: 'Title', autocomplete: 'off'
+      = f.collection_select(:tag_id, @tags, :id, :name, {prompt: "Please select a category"})
       .content__new__video
       .content__new__btns
         .content__new__btns__select

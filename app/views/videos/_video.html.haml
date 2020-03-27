@@ -5,6 +5,9 @@
         .content__box__top
           .content__box__top__title
             = video.name
+            - if video.tag.present?
+              = '/'
+              = video.tag.name
           .content__box__top__icons
             .content__box__top__icons__heart
               - if user_signed_in? && current_user.already_liked?(video)
