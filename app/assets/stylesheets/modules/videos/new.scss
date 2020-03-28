@@ -5,7 +5,7 @@
     margin: auto;
     padding: 10px 20px;
     color: white;
-
+    padding-top: 40px;
     &__text {
       margin-bottom: 10px;
     }
@@ -15,7 +15,7 @@
       border-radius: 5px;
       margin: auto;
       background-color: black;
-      color: white;
+      color: grey;
       margin-bottom: 10px;
       &:focus {
         background-color: black;
@@ -28,7 +28,7 @@
       border: solid 1px rgb(150, 150, 150);
       border-radius: 5px;
       background-color: black;
-      color: white;
+      color: grey;
       margin-bottom: 10px;
     }
     &__video {

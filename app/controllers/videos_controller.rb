@@ -1,14 +1,12 @@
 class VideosController < ApplicationController
-  
+  before_action :set_tag, only: [:index, :new, :edit, :search]
+
   def index
     @videos = Video.includes(:user).page(params[:page]).order("created_at DESC").per(12)
-    @tags = Tag.all
-    @image = current_user.image
   end
 
   def new
     @video = Video.new
-    @tags = Tag.all
   end
 
   def create
@@ -23,7 +21,6 @@ class VideosController < ApplicationController
 
   def edit
     @video = Video.find(params[:id])
-    @tags = Tag.all
   end
 
   def update
@@ -38,10 +35,17 @@ class VideosController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @videos = Video.search(params[:keyword]).page(params[:page]).order("created_at DESC").per(12)
+  end
+
   private
 
   def video_params
     params.require(:video).permit(:name, :work, :tag_id).merge(user_id: current_user.id)
   end
 
+  def set_tag
+    @tags = Tag.all
+  end
 end

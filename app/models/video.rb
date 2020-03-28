@@ -6,5 +6,13 @@ class Video < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   belongs_to :tag
 
+  def self.search(search)
+    if search
+      Video.where('name LIKE(?)', "%#{search}%")
+    else
+      Video.all
+    end
+  end
+
   mount_uploader :work, VideoUploader
 end

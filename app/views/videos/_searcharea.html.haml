@@ -1,0 +1,8 @@
+#search-area
+  = form_with(url: search_videos_path, local: true, method: :get) do |f|
+    .field
+      = f.text_field :keyword, placeholder: "Search", class: "search-input", autocomplete: 'off'
+    .field
+      = f.collection_select(:tag_id, @tags, :id, :name, {prompt: "Please select a category"})
+    .field
+      = f.submit "Search", class: "search-btn", style: "display: none"
