@@ -15,9 +15,9 @@
               - else
                 = icon('far', 'heart', class: 'content__box__top__icons__heart__yet')
               = video.likes.count
-            .content__box__top__icons__star
-              = icon('fas', 'star')
-              = '4.5'
+            .content__box__top__icons__comment
+              = icon('far', 'comment')
+              = video.comments.count
         .content__box__video
           = link_to "/videos/#{video.id}" do
             = video_tag video.work.url, autoplay: true, loop: true, muted: true, width: '100%'

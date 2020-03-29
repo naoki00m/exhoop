@@ -3,8 +3,9 @@
     .content__new__text
       = 'Edit Video'
     = form_with model: @video, local: true do |f|
-      = f.text_field :name, class: 'form-control', autocomplete: 'off', placeholder: 'Title'
+      = f.text_field :name, placeholder: 'Title', autocomplete: 'off'
       = f.collection_select(:tag_id, @tags, :id, :name, {prompt: "Please select a category"})
+      = f.text_area :description, id: 'text-area', placeholder: 'Description', autocomplete: 'off'
       .content__new__video
         = video_tag @video.work.url, autoplay: true, loop: true, controls: true, width: '100%'
       .content__new__btns

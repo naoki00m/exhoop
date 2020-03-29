@@ -129,12 +129,13 @@
   textarea {
     margin: auto;
     width: 400px;
-    height: 150px;
+    height: 92px;
     background-color: black;
     color: white;
     border: solid 1px rgb(150, 150, 150);
     border-radius: 5px;
     padding: 10px;
+    resize: none;
   }
 
   input[type='submit'] {

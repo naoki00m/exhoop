@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :videos, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_videos, through: :likes, source: :video
+  has_many :comments, dependent: :destroy
   # いいねしているかどうか判定
   def already_liked?(video)
     self.likes.exists?(video_id: video.id)
