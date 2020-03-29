@@ -17,6 +17,8 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @like = Like.new
+    @comment = Comment.new
+    @comments = @video.comments.includes(:user)
   end
 
   def edit
@@ -42,7 +44,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.require(:video).permit(:name, :work, :tag_id).merge(user_id: current_user.id)
+    params.require(:video).permit(:name, :work, :tag_id, :description).merge(user_id: current_user.id)
   end
 
   def set_tag

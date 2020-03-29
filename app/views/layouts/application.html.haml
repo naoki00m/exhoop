@@ -17,10 +17,10 @@
             = icon('fa', 'plus', class: 'header__option__plus__icon')
             .header__option__plus__text
               = 'New'
-          = link_to '#', class: 'header__option__search', id: 'search-btn' do
-            = icon('fa', 'search', class: 'header__option__search__icon')
-            .header__option__search__text
-              = 'Search'
+        = link_to '#', class: 'header__option__search', id: 'search-btn' do
+          = icon('fa', 'search', class: 'header__option__search__icon')
+          .header__option__search__text
+            = 'Search'
         -if user_signed_in?
           = link_to "/users/#{current_user.id}", class:'header__option__user' do
             = icon('fa', 'user-circle', class: 'header__option__user__icon')
