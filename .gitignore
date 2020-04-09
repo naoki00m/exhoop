@@ -25,8 +25,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-config/secrets.yml
 
 public/uploads/*
 
 .DS_Store
+
+config/secrets.yml
