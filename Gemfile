@@ -82,3 +82,4 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'rubocop', require: false
+gem 'fog-aws'
