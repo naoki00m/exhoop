@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'exhoop'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/exhoop'
+  config.asset_host = 'https://exhoop.s3-ap-northeast-1.amazonaws.com'
 end
