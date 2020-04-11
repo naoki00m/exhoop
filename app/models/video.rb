@@ -15,5 +15,5 @@ class Video < ApplicationRecord
     end
   end
 
-  mount_uploader :work, VideoUploader
+  mount_uploader :work, WorkUploader
 end
