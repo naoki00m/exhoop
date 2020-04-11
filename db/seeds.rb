@@ -6,3 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+Tag.create(name: "Beauty")
+Tag.create(name: "Shopping")
+Tag.create(name: "Figure")
+Tag.create(name: "Gourmet")
+Tag.create(name: "Animal")
+Tag.create(name: "Interior")
+Tag.create(name: "Building")
+Tag.create(name: "Art")
+Tag.create(name: "Comic")
+Tag.create(name: "Nature")
+Tag.create(name: "Movie")
+Tag.create(name: "Travel")
