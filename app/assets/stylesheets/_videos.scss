@@ -26,10 +26,10 @@ body {
     background-color: rgb(45, 45, 45);
     position: fixed;
     z-index: 1;
-    
     &__title {
       line-height: 60px;
       font-size: 24px;
+      width:120px;
       a {
         color: white;
         text-decoration: none;
@@ -38,27 +38,47 @@ body {
         color: rgb(180, 180, 180);
       }
     }
+    &__search {
+      line-height: 60px;
+      color: white;
+      display: flex;
+      position: relative;
+      &__input {
+        width: 200px;
+        height: 28px;
+        padding: 0 10px;
+        border: solid 0px;
+        border-radius: 3px;
+        background-color: rgb(20, 20, 20);
+        color: white;
+        margin-bottom: 20px;
+      }
+      &__reset {
+        position: absolute;
+        top: 24px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        color: grey;
+        border: none;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
     &__option {
       display: flex;
       justify-content: flex-end;
       align-items: center;
       font-size: 20px;
       &__plus {
-        width:70px;
-        text-align: center;
-        &__text {
-          font-size: 12px;
-        }
-      }
-      &__search {
-        width:70px;
+        width:60px;
         text-align: center;
         &__text {
           font-size: 12px;
         }
       }
       &__user {
-        width:70px;
+        width:60px;
         text-align: center;
         &__text {
           font-size: 12px;
@@ -92,6 +112,7 @@ body {
       &__message {
         color: white;
         margin-bottom: 10px;
+        font-family: cursive;
       }
       &__icons {
         color: white;

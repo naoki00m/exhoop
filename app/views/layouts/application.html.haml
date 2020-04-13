@@ -11,17 +11,19 @@
     .header
       .header__title
         = link_to 'EXHOOP', root_path
+      = form_with(url: search_videos_path, local: true, method: :get) do |f|
+        .header__search
+          .field
+            = f.text_field :keyword, placeholder: "Search", class: "header__search__input", autocomplete: "off", autofocus: "on"
+            = icon('fa', 'times-circle', class: 'header__search__reset')
+          .field
+            = f.submit "Search", class: "header__search__btn", style: "display: none"
       .header__option
         -if user_signed_in?
           = link_to '/videos/new', class:'header__option__plus' do
             = icon('fa', 'plus', class: 'header__option__plus__icon')
             .header__option__plus__text
               = 'New'
-        = link_to '#', class: 'header__option__search', id: 'search-btn' do
-          = icon('fa', 'search', class: 'header__option__search__icon')
-          .header__option__search__text
-            = 'Search'
-        -if user_signed_in?
           = link_to "/users/#{current_user.id}", class:'header__option__user' do
             = icon('fa', 'user-circle', class: 'header__option__user__icon')
             .header__option__user__text
@@ -37,7 +39,7 @@
         .footer__leftbox__title
           = 'EXHOOP'
         .footer__leftbox__message
-          = 'message'
+          = 'For all video creater'
         .footer__leftbox__icons
           = link_to 'https://github.com/', class: 'github__icon', target: :blank do
             = icon('fab', 'github')
@@ -48,7 +50,3 @@
         .footer__leftbox__copyright
           = '©️ 2020 - EXHOOP Inc.'
       .footer__rightbox
-        .footer__rightbox__about
-          = 'About'
-        .footer__rightbox__help
-          = 'Help'
