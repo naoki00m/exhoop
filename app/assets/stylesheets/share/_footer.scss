@@ -1,0 +1,50 @@
+body {
+  .footer {
+    display: flex;
+    width: 100vw;
+    height: 160px;
+    padding: 20px;
+    background-color: rgb(45, 45, 45);
+    &__leftbox {
+      width: 50%;
+      &__title {
+        color: white;
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+      &__message {
+        color: white;
+        margin-bottom: 10px;
+        font-family: cursive;
+      }
+      &__icons {
+        color: white;
+        margin-bottom: 10px;
+        a {
+          color: white;
+          text-decoration: none;
+          margin-right: 5px;
+        }
+        a:hover {
+          color: rgb(180, 180, 180);
+        }
+      }
+      &__copyright {
+        color: white;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+    }
+    &__rightbox {
+      width: 50%;
+      &__about {
+        color: white;
+        margin-bottom: 5px;
+      }
+      &__help {
+        color: white;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

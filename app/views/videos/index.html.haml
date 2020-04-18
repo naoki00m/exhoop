@@ -1,6 +1,10 @@
+= render partial: "share/header"
+
 .content
   .content__paginate
     = paginate(@videos)
-  = render partial: "video", locals: { video: @video }
+  = render partial: "share/video", locals: { video: @video }
   .content__paginate
     = paginate(@videos)
+
+= render partial: "share/footer"

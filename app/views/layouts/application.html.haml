@@ -8,45 +8,4 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    .header
-      .header__title
-        = link_to 'EXHOOP', root_path
-      = form_with(url: search_videos_path, local: true, method: :get) do |f|
-        .header__search
-          .field
-            = f.text_field :keyword, placeholder: "Search", class: "header__search__input", autocomplete: "off", autofocus: "on"
-            = icon('fa', 'times-circle', class: 'header__search__reset')
-          .field
-            = f.submit "Search", class: "header__search__btn", style: "display: none"
-      .header__option
-        -if user_signed_in?
-          = link_to '/videos/new', class:'header__option__plus' do
-            = icon('fa', 'plus', class: 'header__option__plus__icon')
-            .header__option__plus__text
-              = 'New'
-          = link_to "/users/#{current_user.id}", class:'header__option__user' do
-            = icon('fa', 'user-circle', class: 'header__option__user__icon')
-            .header__option__user__text
-              = current_user.name
-        - else 
-          = link_to new_user_session_path, class:'header__option__user' do
-            = icon('fa', 'user-circle', class: 'header__option__user__icon')
-            .header__option__user__text
-              = 'User'
     = yield
-    .footer
-      .footer__leftbox
-        .footer__leftbox__title
-          = 'EXHOOP'
-        .footer__leftbox__message
-          = 'For all video creater'
-        .footer__leftbox__icons
-          = link_to 'https://github.com/', class: 'github__icon', target: :blank do
-            = icon('fab', 'github')
-          = link_to 'https://twitter.com/', class: 'twitter__icon', target: :blank do
-            = icon('fab', 'twitter')
-          = link_to 'https://instagram.com/', class: 'instagram__icon', target: :blank do
-            = icon('fab', 'instagram')
-        .footer__leftbox__copyright
-          = '©️ 2020 - EXHOOP Inc.'
-      .footer__rightbox

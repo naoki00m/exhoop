@@ -1,3 +1,5 @@
+= render partial: "share/header"
+
 .content
   .userbox
     .userbox__top
@@ -24,4 +26,6 @@
                   = 'Logout'
     .userbox__bottom
       = simple_format(@profile)
-  = render partial: "videos/video", locals: { video: @video }
+  = render partial: "share/video", locals: { video: @video }
+
+= render partial: "share/footer"

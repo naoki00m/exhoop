@@ -4,7 +4,7 @@
   = form_with(url: search_videos_path, local: true, method: :get) do |f|
     .header__search
       .field
-        = f.text_field :keyword, placeholder: "Search", class: "header__search__input", autocomplete: "off", autofocus: "on"
+        = f.text_field :keyword, placeholder: "Search", class: "header__search__input", autocomplete: "off"
         = icon('fa', 'times-circle', class: 'header__search__reset')
       .field
         = f.submit "Search", class: "header__search__btn", style: "display: none"
@@ -23,12 +23,3 @@
         = icon('fa', 'user-circle', class: 'header__option__user__icon')
         .header__option__user__text
           = 'User'
-
-.content
-  .content__paginate
-    = paginate(@videos)
-  = render partial: "share/video", locals: { video: @video }
-  .content__paginate
-    = paginate(@videos)
-
-= render partial: "share/footer"

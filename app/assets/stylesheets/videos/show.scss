@@ -43,9 +43,6 @@
         }
       }
       &__video {
-        :focus {
-          outline: none;
-        }
       }
       &__bottom {
         display: flex;
@@ -67,7 +64,6 @@
           &__icon {
             width: 40px;
             height: 40px;
-            border-radius: 100px;
             overflow: hidden;
           }
           &__name {
@@ -174,7 +170,6 @@
             &__icon {
               width: 30px;
               height: 30px;
-              border-radius: 100px;
               overflow: hidden;
               margin-right: 10px;
             }

@@ -19,8 +19,8 @@
               = icon('far', 'comment')
               = video.comments.count
         .content__box__video
-          = link_to "/videos/#{video.id}" do
+          = link_to video_path(video.id) do
             = video_tag video.work.url, autoplay: true, loop: true, muted: true, width: '100%'
         .content__box__user
-          = link_to "/users/#{video.user.id}" do
-            = video.user.name # 投稿したuserのページにリンク
+          = link_to user_path(video.user.id) do
+            = video.user.name

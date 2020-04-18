@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_tag, only: [:index, :new, :edit, :search]
+  before_action :set_tags, only: [:index, :new, :create, :edit, :search]
 
   def index
     @videos = Video.includes(:user).page(params[:page]).order("created_at DESC").per(12)
@@ -10,8 +10,12 @@ class VideosController < ApplicationController
   end
 
   def create
-    Video.create(video_params)
-    redirect_to root_path
+    @video = Video.create(video_params)
+    if @video.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -47,7 +51,7 @@ class VideosController < ApplicationController
     params.require(:video).permit(:name, :work, :tag_id, :description).merge(user_id: current_user.id)
   end
 
-  def set_tag
+  def set_tags
     @tags = Tag.all
   end
 end

@@ -1,3 +1,5 @@
+= render partial: "share/header"
+
 .content
   .content__show
     .container
@@ -29,21 +31,21 @@
           .content__show__box__bottom
             .content__show__box__bottom__user
               .content__show__box__bottom__user__icon
-                = link_to "/users/#{@video.user.id}" do
+                = link_to user_path(@video.user.id) do
                   - if @video.user.image.present?
                     = image_tag @video.user.image.url, width: '100%'
                   - else
                     = image_tag '/images/default_user.jpg', width: '100%'
               .content__show__box__bottom__user__name
-                = link_to "/users/#{@video.user.id}" do
+                = link_to user_path(@video.user.id) do
                   = @video.user.name # 投稿したuserのページにリンク
             .content__show__box__bottom__icons
               - if user_signed_in? && current_user.id == @video.user.id
                 .content__show__box__bottom__icons__edit
-                  = link_to "/videos/#{@video.id}/edit", method: :get do
+                  = link_to edit_video_path(@video.id) do
                     = icon('fa', 'edit')
                 .content__show__box__bottom__icons__delete
-                  = link_to "/videos/#{@video.id}", method: :delete do
+                  = link_to video_path(@video.id), method: :delete do
                     = icon('fa', 'trash-alt')
           .content__show__box__description
             .content__show__box__description__top
@@ -86,6 +88,4 @@
                 .content__show__comment__bottom__text
                   = simple_format(comment.text)
 
-
-
-
+= render partial: "share/footer"
