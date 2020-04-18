@@ -42,7 +42,7 @@
             .content__show__box__bottom__icons
               - if user_signed_in? && current_user.id == @video.user.id
                 .content__show__box__bottom__icons__edit
-                  = link_to edit_video_path(@video.id) do
+                  = link_to edit_video_path(@video.id), method: :get do
                     = icon('fa', 'edit')
                 .content__show__box__bottom__icons__delete
                   = link_to video_path(@video.id), method: :delete do
