@@ -64,6 +64,7 @@
           &__icon {
             width: 40px;
             height: 40px;
+            border-radius: 100px;
             overflow: hidden;
           }
           &__name {
@@ -116,8 +117,6 @@
         padding: 0 15px;
         margin-bottom: 5px;
         line-height: 28px;
-        &__icons {
-        }
       }
       &__add {
         padding: 5px 10px;
@@ -170,6 +169,7 @@
             &__icon {
               width: 30px;
               height: 30px;
+              border-radius: 100px;
               overflow: hidden;
               margin-right: 10px;
             }
