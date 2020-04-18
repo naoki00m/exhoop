@@ -12,3 +12,7 @@ html {
     justify-content: center;
   }
 }
+
+:focus {
+  outline: none;
+}
