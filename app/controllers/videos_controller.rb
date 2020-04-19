@@ -21,8 +21,10 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @like = Like.new
-    @comment = Comment.new
+    @new_comment = Comment.new
     @comments = @video.comments.includes(:user)
+    @comment = Comment.find(params[:id])
+    @replies = Comment.group(:reply).count
   end
 
   def edit
@@ -54,4 +56,5 @@ class VideosController < ApplicationController
   def set_tags
     @tags = Tag.all
   end
+
 end
