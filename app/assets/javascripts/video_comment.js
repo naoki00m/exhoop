@@ -1,4 +1,4 @@
-// コメント
+// コメントのテキストボックス
 $(function() {
   var $textarea = $('#comment-text');
   var lineHeight = parseInt($textarea.css('lineHeight'));
@@ -8,7 +8,8 @@ $(function() {
   });
 });
 
-$(function(){
+// コメントの送信ボタン表示・非表示切り替え
+$(function() {
   $(".content__show__comment__add__btn").hide();
   $("#comment-text").on("click", function() {
     $(".content__show__comment__add__btn").show();
@@ -18,8 +19,7 @@ $(function(){
   });
 });
 
-
-// 返信
+// 返信のテキストボックス
 $(function() {
   var $textarea = $('#reply-text');
   var lineHeight = parseInt($textarea.css('lineHeight'));
@@ -29,18 +29,27 @@ $(function() {
   });
 });
 
-$(function(){
+// 返信数の表示
+$(function() {
   var reply = [];
-  for ( var i = 1 ; i <= 100 ; i++ ) {
+  for ( var i = 1 ; i <= 1000 ; i++ ) {
     reply.push(i);
   }
   $.each(reply, function(index, value) {
-    $("#reply-area" + value).hide();
+    $("#reply-form" + value).hide();
     $("#reply-btn" + value).on("click", function() {
-      $("#reply-area" + value).show();
+      $("#reply-form" + value).show();
     });
     $(".content__show__comment__bottom__reply__btn__cansel").on("click", function() {
-      $("#reply-area" + value).hide();
+      $("#reply-form" + value).hide();
     });
+  });
+});
+
+// 返信の表示・非表示切り替え
+$(function() {
+  $(".content__show__comment__bottom__view-reply").hide();
+  $(".content__show__comment__bottom__view-btn").on("click", function() {
+    $(".content__show__comment__bottom__view-reply").toggle();
   });
 });

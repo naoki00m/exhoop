@@ -186,7 +186,7 @@
           }
         }
         &__text {
-          padding-left: 40px;
+          padding: 0 40px;
           margin-bottom: 10px;
           text-align: left;
         }
@@ -215,6 +215,46 @@
               background-color: grey;
               border: 0px;
             }
+          }
+        }
+        &__view-reply {
+          &__top {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0px 0px 35px;
+            a {
+              text-decoration: none;
+              color: white;
+              &:hover {
+                text-decoration: none;
+                color: rgb(180, 180, 180);
+              }
+            }
+            &__user{
+              margin-bottom: 5px;
+              display: flex;
+              &__icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+                overflow: hidden;
+                margin-right: 10px;
+              }
+              &__name {
+                line-height: 30px;
+              }
+            }
+            &__icons {
+              display: flex;
+              width: 50px;
+              line-height: 30px;
+              justify-content: space-around;
+            }
+          }
+          &__text {
+            padding: 0 40px 0 75px;
+            margin-bottom: 10px;
+            text-align: left;
           }
         }
       }
