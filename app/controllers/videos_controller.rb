@@ -55,5 +55,4 @@ class VideosController < ApplicationController
   def set_tags
     @tags = Tag.all
   end
-
 end
