@@ -55,17 +55,18 @@
         .content__show__comment
           .content__show__comment__top
             = 'Comment'
-          - if current_user
+          - if user_signed_in?
             .content__show__comment__add
-              = form_with(model: [@video, @comment], local: true) do |f|
+              = form_with(model: [@video, @new_comment], local: true) do |f|
                 = f.text_area :text, placeholder: "Add a public comment...", id: "comment-text"
                 .content__show__comment__add__btn
                   .content__show__comment__add__btn__cansel
                     = 'Cansel'
                   = f.submit "Send", class: 'content__show__comment__add__btn__send'
+          // コメント表示
           .content__show__comment__bottom
-            -if @comments
-              - @comments.each do |comment|
+            - @comments.each do |comment|
+              - if comment.reply.blank?
                 .content__show__comment__bottom__top
                   .content__show__comment__bottom__top__user
                     .content__show__comment__bottom__top__user__icon
@@ -77,15 +78,63 @@
                     .content__show__comment__bottom__top__user__name
                       = link_to "/users/#{comment.user.id}" do
                         = comment.user.name
-                  - if user_signed_in? && current_user.id == comment.user.id
-                    .content__show__comment__bottom__top__icons
-                      .content__show__comment__bottom__top__icons__edit
+                  .content__show__comment__bottom__top__icons
+                    - if user_signed_in? && current_user.id == comment.user.id
+                      .content__show__comment__bottom__top__icons__reply
                         = link_to '#' do
-                          = icon('fa', 'edit')
+                          = icon('fa', 'reply', id: "reply-btn#{comment.id}")
                       .content__show__comment__bottom__top__icons__delete
                         = link_to video_comment_path(comment.video_id, comment.id), method: :delete do
                           = icon('fa', 'trash-alt')
+                    - elsif user_signed_in? && current_user.id != comment.user.id
+                      .content__show__comment__bottom__top__icons__reply
+                        = link_to '#' do
+                          = icon('fa', 'reply', id: "reply-btn#{comment.id}")
+                    - else
+                      = ''
                 .content__show__comment__bottom__text
                   = simple_format(comment.text)
+                - if user_signed_in?
+                  .content__show__comment__bottom__reply
+                    = form_with(model: [@video, @new_comment], local: true, id: "reply-form#{comment.id}") do |f|
+                      = f.text_area :text, placeholder: "Add a public reply...", id: "reply-text"
+                      = f.hidden_field :reply, value: comment.id
+                      .content__show__comment__bottom__reply__btn
+                        .content__show__comment__bottom__reply__btn__cansel
+                          = 'Cansel'
+                        = f.submit "Reply", class: 'content__show__comment__bottom__reply__btn__send'
+                // 返信数
+                .content__show__comment__bottom__view-btn
+                  = link_to '#' do
+                    - if @replies[comment.id] == nil
+                      = ""
+                    - elsif @replies[comment.id] == 1
+                      = "View #{ @replies[comment.id] } reply"
+                    - else
+                      = "View #{ @replies[comment.id] } replies"
+              // 返信表示
+              - @comments.each do |reply|
+                - if reply.reply == comment.id
+                  .content__show__comment__bottom__view-reply
+                    .content__show__comment__bottom__view-reply__top
+                      .content__show__comment__bottom__view-reply__top__user
+                        .content__show__comment__bottom__view-reply__top__user__icon
+                          = link_to "/users/#{reply.user.id}" do
+                            - if reply.user.image.present?
+                              = image_tag reply.user.image.url, width: '100%'
+                            - else
+                              = image_tag('/images/default_user.jpg', width: '100%')
+                        .content__show__comment__bottom__view-reply__top__user__name
+                          = link_to "/users/#{reply.user.id}" do
+                            = reply.user.name
+                      .content__show__comment__bottom__view-reply__top__icons
+                        - if user_signed_in? && current_user.id == reply.user.id
+                          .content__show__comment__bottom__view-reply__top__icons__delete
+                            = link_to video_comment_path(reply.video_id, reply.id), method: :delete do
+                              = icon('fa', 'trash-alt')
+                        - else
+                          = ''
+                    .content__show__comment__bottom__view-reply__text
+                      = simple_format(reply.text)
 
 = render partial: "share/footer"
