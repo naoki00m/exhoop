@@ -23,7 +23,7 @@ class VideosController < ApplicationController
     @like = Like.new
     @new_comment = Comment.new
     @comments = @video.comments.includes(:user)
-    @replies = Comment.group(:reply).includes(:user).count
+    @replies = Comment.group(:reply).count
   end
 
   def edit
