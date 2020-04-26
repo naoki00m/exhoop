@@ -1,10 +1,11 @@
 class Video < ApplicationRecord
   validates :name, :work, presence: true
   validates :name, length: { maximum: 20 }
+
   belongs_to :user
+  belongs_to :tag
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
-  belongs_to :tag
   has_many :comments, dependent: :destroy
 
   def self.search(search)
