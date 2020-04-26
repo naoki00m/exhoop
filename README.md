@@ -199,10 +199,10 @@ dotenv-rails      (envファイル)
 |profile|text|length: { maximum: 200 }|
 
 ### Association
-has_many :videos
-has_many :likes
-has_many :liked_videos, through: :likes, source: :video
-has_many :comments, dependent: :destroy
+has_many :videos  
+has_many :likes  
+has_many :liked_videos, through: :likes, source: :video  
+has_many :comments, dependent: :destroy  
 
 </br>
 
@@ -216,11 +216,11 @@ has_many :comments, dependent: :destroy
 |tag_id|integer||
 
 ### Association
-belongs_to :user
-belongs_to :tag
-has_many :likes, dependent: :destroy
-has_many :liked_users, through: :likes, source: :user
-has_many :comments, dependent: :destroy
+belongs_to :user  
+belongs_to :tag  
+has_many :likes, dependent: :destroy  
+has_many :liked_users, through: :likes, source: :user  
+has_many :comments, dependent: :destroy  
 
 </br>
 
@@ -233,8 +233,8 @@ has_many :comments, dependent: :destroy
 |reply|integer||
 
 ### Association
-belongs_to :user
-belongs_to :video
+belongs_to :user  
+belongs_to :video  
 
 </br>
 
@@ -245,8 +245,8 @@ belongs_to :video
 |video_id|references|foreign_key: true|
 
 ### Association
-belongs_to :user
-belongs_to :video
+belongs_to :user  
+belongs_to :video  
 
 </br>
 
@@ -256,4 +256,4 @@ belongs_to :video
 |name|string|null: false|
 
 ### Association
-has_many :videos
+has_many :videos  
