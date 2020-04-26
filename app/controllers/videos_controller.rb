@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-  before_action :set_tags, only: [:index, :new, :create, :edit, :search]
+  before_action :set_tags, only: [:new, :edit]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @videos = Video.includes(:user).page(params[:page]).order("created_at DESC").per(12)
@@ -54,5 +55,9 @@ class VideosController < ApplicationController
 
   def set_tags
     @tags = Tag.all
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
