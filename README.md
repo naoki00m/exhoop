@@ -1,5 +1,5 @@
 # アプリ名
-EXHOOP
+### EXHOOP
 
 </br>
 
@@ -16,7 +16,7 @@ EXHOOP
 </br>
 
 # 本番環境
-URL: 18.177.47.182
+### URL: 18.177.47.182
 
 </br>
 
@@ -36,14 +36,14 @@ URL: 18.177.47.182
 
 # DEMO
 ## 各ページのPathはこちらをご確認ください(:idには数字が入ります)
-動画一覧画面　　　　 (18.177.47.182)  
-動画新規投稿画面　　 (18.177.47.182/videos/new)  
-動画詳細画面　　　　 (18.177.47.182/videos/:id)  
-動画編集画面　　　　 (18.177.47.182/videos/:id/edit)  
-ユーザー新規登録画面 (18.177.47.182/users/sign_up)  
-ユーザーログイン画面 (18.177.47.182/users/sign_in)  
-ユーザー詳細画面　　 (18.177.47.182/users/:id)  
-ユーザー編集画面　　 (18.177.47.182/users/:id/edit)  
+・動画一覧画面　　　　 (18.177.47.182)  
+・動画新規投稿画面　　 (18.177.47.182/videos/new)  
+・動画詳細画面　　　　 (18.177.47.182/videos/:id)  
+・動画編集画面　　　　 (18.177.47.182/videos/:id/edit)  
+・ユーザー新規登録画面 (18.177.47.182/users/sign_up)  
+・ユーザーログイン画面 (18.177.47.182/users/sign_in)  
+・ユーザー詳細画面　　 (18.177.47.182/users/:id)  
+・ユーザー編集画面　　 (18.177.47.182/users/:id/edit)  
 
 ## 18.177.47.182にアクセスしていただくと、下図のような動画一覧をご確認いただけます。
 
@@ -127,18 +127,18 @@ MySQL
 ## デプロイ
 AWS  
 ## Gem
-devise            (ユーザー登録・ログイン)  
-carrierwave       (動画、画像アップロード)  
-mini_magick       (アップロードのサイズ上限指定)  
-haml-rails        (Haml記法)  
-jquery-rails      (Jquery)  
-font-awesome-sass (アイコン)  
-kaminari          (ページネーション)  
-bootstrap         (画面幅に応じて表示要素数変更)  
-activeadmin       (管理者ページ)  
-fog-aws           (AWSに動画、画像アップロード)  
-rubocop           (静的解析ツール)  
-dotenv-rails      (envファイル)  
+|devise           |ユーザー登録・ログイン|
+|carrierwave      |動画、画像アップロード|
+|mini_magick      |アップロードのサイズ上限指定|
+|haml-rails       |Haml記法|
+|jquery-rails     |Jquery|
+|font-awesome-sass|アイコン|
+|kaminari         |ページネーション|
+|bootstrap        |画面幅に応じて表示要素数変更|
+|activeadmin      |管理者ページ|
+|fog-aws          |AWSに動画、画像アップロード|
+|rubocop          |静的解析ツール|
+|dotenv-rails     |envファイル|
 
 </br>
 
@@ -202,7 +202,7 @@ dotenv-rails      (envファイル)
 has_many :videos  
 has_many :likes  
 has_many :liked_videos, through: :likes, source: :video  
-has_many :comments, dependent: :destroy  
+has_many :comments,     dependent: :destroy  
 
 </br>
 
@@ -218,9 +218,9 @@ has_many :comments, dependent: :destroy
 ### Association
 belongs_to :user  
 belongs_to :tag  
-has_many :likes, dependent: :destroy  
-has_many :liked_users, through: :likes, source: :user  
-has_many :comments, dependent: :destroy  
+has_many   :likes,       dependent: :destroy  
+has_many   :liked_users, through: :likes, source: :user  
+has_many   :comments,    dependent: :destroy  
 
 </br>
 
