@@ -84,14 +84,14 @@
                       = link_to "/users/#{comment.user.id}" do
                         = comment.user.name
                   .content__show__comment__bottom__top__icons
-                    - if user_signed_in? && current_user.id == comment.user.id
+                    - if user_signed_in? && current_user.id == comment.user.id && comment.text != "This comment has been deleted."
                       .content__show__comment__bottom__top__icons__reply
                         = link_to '#' do
                           = icon('fa', 'reply', id: "reply-btn#{comment.id}")
                       .content__show__comment__bottom__top__icons__delete
-                        = link_to video_comment_path(comment.video_id, comment.id), method: :delete do
+                        = link_to video_comment_path(comment.video_id, comment.id), method: :patch do
                           = icon('fa', 'trash-alt')
-                    - elsif user_signed_in? && current_user.id != comment.user.id
+                    - elsif user_signed_in? && current_user.id != comment.user.id && comment.text != "This comment has been deleted."
                       .content__show__comment__bottom__top__icons__reply
                         = link_to '#' do
                           = icon('fa', 'reply', id: "reply-btn#{comment.id}")
