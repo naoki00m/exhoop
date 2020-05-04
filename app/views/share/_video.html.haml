@@ -20,7 +20,7 @@
               = video.comments.count
         .content__box__video
           = link_to video_path(video.id) do
-            = video_tag video.work.url, autoplay: true, loop: true, muted: true, width: '100%'
+            = video_tag video.work.url, loop: true, muted: true, width: '100%', class: 'video'
         .content__box__user
           = link_to user_path(video.user.id) do
             = video.user.name
