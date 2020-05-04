@@ -40,6 +40,11 @@
                 = link_to user_path(@video.user.id) do
                   = @video.user.name # 投稿したuserのページにリンク
             .content__show__box__bottom__icons
+              -# Twitterへの共有を別タブで開く
+              .content__show__box__bottom__icons__share
+                = link_to "http://twitter.com/share?url=#{request.url}&hashtags=Twitterへの共有テスト中", target: :_blank do
+                  = icon('fab', 'twitter')
+              -# 投稿者の場合、編集削除ボタンを表示
               - if user_signed_in? && current_user.id == @video.user.id
                 .content__show__box__bottom__icons__edit
                   = link_to edit_video_path(@video.id), method: :get do
@@ -103,38 +108,55 @@
                         .content__show__comment__bottom__reply__btn__cansel
                           = 'Cansel'
                         = f.submit "Reply", class: 'content__show__comment__bottom__reply__btn__send'
-                // 返信数
-                .content__show__comment__bottom__view-btn
-                  = link_to '#' do
+                // 返信数に応じて表示を切り替え
+                %div{id: "reply-view-hide#{comment.id}"}
+                  .content__show__comment__bottom__view-btn
                     - if @replies[comment.id] == nil
                       = ""
                     - elsif @replies[comment.id] == 1
-                      = "View #{ @replies[comment.id] } reply"
+                      // jsで表示文字を切り替え
+                      %div{id: "reply-view#{comment.id}"}
+                        = icon('fa', 'caret-down')
+                        = "View"
+                      %div{id: "reply-hide#{comment.id}"}
+                        = icon('fa', 'caret-up')
+                        = "Hide"
+                      .content__show__comment__bottom__view-btn__text
+                        = "#{ @replies[comment.id] } reply"
                     - else
-                      = "View #{ @replies[comment.id] } replies"
+                      // jsで表示文字を切り替え
+                      %div{id: "reply-view#{comment.id}"}
+                        = icon('fa', 'caret-down')
+                        = "View"
+                      %div{id: "reply-hide#{comment.id}"}
+                        = icon('fa', 'caret-up')
+                        = "Hide"
+                      .content__show__comment__bottom__view-btn__text
+                        = "#{ @replies[comment.id] } replies"
               // 返信表示
-              - @comments.each do |reply|
-                - if reply.reply == comment.id
-                  .content__show__comment__bottom__view-reply
-                    .content__show__comment__bottom__view-reply__top
-                      .content__show__comment__bottom__view-reply__top__user
-                        .content__show__comment__bottom__view-reply__top__user__icon
-                          = link_to "/users/#{reply.user.id}" do
-                            - if reply.user.image.present?
-                              = image_tag reply.user.image.url, width: '100%'
-                            - else
-                              = image_tag('/images/default_user.jpg', width: '100%')
-                        .content__show__comment__bottom__view-reply__top__user__name
-                          = link_to "/users/#{reply.user.id}" do
-                            = reply.user.name
-                      .content__show__comment__bottom__view-reply__top__icons
-                        - if user_signed_in? && current_user.id == reply.user.id
-                          .content__show__comment__bottom__view-reply__top__icons__delete
-                            = link_to video_comment_path(reply.video_id, reply.id), method: :delete do
-                              = icon('fa', 'trash-alt')
-                        - else
-                          = ''
-                    .content__show__comment__bottom__view-reply__text
-                      = simple_format(reply.text)
+              %div{id: "reply-text#{comment.id}"}
+                - @comments.each do |reply|
+                  - if reply.reply == comment.id
+                    .content__show__comment__bottom__view-reply
+                      .content__show__comment__bottom__view-reply__top
+                        .content__show__comment__bottom__view-reply__top__user
+                          .content__show__comment__bottom__view-reply__top__user__icon
+                            = link_to "/users/#{reply.user.id}" do
+                              - if reply.user.image.present?
+                                = image_tag reply.user.image.url, width: '100%'
+                              - else
+                                = image_tag('/images/default_user.jpg', width: '100%')
+                          .content__show__comment__bottom__view-reply__top__user__name
+                            = link_to "/users/#{reply.user.id}" do
+                              = reply.user.name
+                        .content__show__comment__bottom__view-reply__top__icons
+                          - if user_signed_in? && current_user.id == reply.user.id
+                            .content__show__comment__bottom__view-reply__top__icons__delete
+                              = link_to video_comment_path(reply.video_id, reply.id), method: :delete do
+                                = icon('fa', 'trash-alt')
+                          - else
+                            = ''
+                      .content__show__comment__bottom__view-reply__text
+                        = simple_format(reply.text)
 
 = render partial: "share/footer"

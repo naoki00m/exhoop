@@ -48,8 +48,19 @@ $(function() {
 
 // 返信の表示・非表示切り替え
 $(function() {
-  $(".content__show__comment__bottom__view-reply").hide();
-  $(".content__show__comment__bottom__view-btn").on("click", function() {
-    $(".content__show__comment__bottom__view-reply").toggle();
+  var reply = [];
+  for ( var i = 1 ; i <= 1000 ; i++ ) {
+    reply.push(i);
+  }
+  var flg = "View";
+  $.each(reply, function(index, value) {
+    $("#reply-text" + value).hide();
+    $("#reply-hide" + value).hide();
+    $("#reply-view-hide" + value).on("click", function() {
+      $("#reply-text" + value).fadeToggle();
+      // 表示文字の切り替え
+      $("#reply-view" + value).toggle();
+      $("#reply-hide" + value).toggle();
+    });
   });
 });
