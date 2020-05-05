@@ -45,14 +45,14 @@
                 = icon('fas', 'share-alt')
                 .content__show__box__bottom__icons__share__area
                   .content__show__box__bottom__icons__share__area__twitter
-                    = link_to "http://twitter.com/share?url=#{request.url}&text=#{@video.user.name}さんの作品「#{@video.name}」%0A&hashtags=EXHOOP", target: :_blank do
+                    = link_to "http://twitter.com/share?url=#{request.url}&text=#{@video.user.name}さんの作品「#{@video.name}」%0A&hashtags=EXHOOP", onclick: "window.open(this.href,'hoge', 'height=300, width=800');return false;" do
                       .content__show__box__bottom__icons__share__area__twitter__btn
                         .content__show__box__bottom__icons__share__area__twitter__btn__icon
                           = icon('fab', 'twitter')
                         .content__show__box__bottom__icons__share__area__twitter__btn__text
                           = "Twitter"
                   .content__show__box__bottom__icons__share__area__line
-                    = link_to "https://line.me/R/msg/text/?#{@video.user.name}さんの作品「#{@video.name}」%0A#{request.url}%0AEXHOOP", target: :_blank do
+                    = link_to "https://line.me/R/msg/text/?#{@video.user.name}さんの作品「#{@video.name}」%0A#{request.url}%0AEXHOOP", onclick: "window.open(this.href,'hoge', 'height=500, width=800');return false;" do
                       .content__show__box__bottom__icons__share__area__line__btn
                         .content__show__box__bottom__icons__share__area__line__btn__icon
                           = icon('fab', 'line')
