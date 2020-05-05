@@ -80,12 +80,51 @@
           }
         }
         &__icons {
+          height: 40px;
+          align-items: center;
           display: flex;
-          line-height: 40px;
+          justify-content: space-evenly;
           &__share {
+            position: relative;
+            :hover {
+              color: rgb(180, 180, 180);
+              cursor: pointer;
+            }
+            &__area {
+              position: absolute;
+              top: 30px;
+              left: -37px;
+              width: 90px;
+              background-color: black;
+              padding: 10px;
+              &__twitter {
+                text-align: left;
+                :hover {
+                  color: rgb(70, 233, 255);
+                }
+                &__btn {
+                  display: flex;
+                  &__icon {
+                    margin-right: 5px;
+                  }
+                }
+              }
+              &__line {
+                text-align: left;
+                :hover {
+                  color: rgb(105, 255, 45);
+                }
+                &__btn {
+                  display: flex;
+                  &__icon {
+                    margin-right: 7px;
+                  }
+                }
+              }
+            }
           }
           &__edit {
-            margin-left: 15px;
+            margin-left: 18px;
           }
           &__delete {
             margin-left: 15px;
