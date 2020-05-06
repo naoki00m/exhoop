@@ -1,5 +1,5 @@
-%div{class: "videos show"}
-  - @videos.each do |video|
+%div{class: "videos"}
+  - @user.liked_videos.each do |video|
     .content__box
       .content__box__top
         .content__box__top__title
@@ -9,10 +9,7 @@
             = video.tag.name
         .content__box__top__icons
           .content__box__top__icons__heart
-            - if user_signed_in? && current_user.already_liked?(video)
-              = icon('fa', 'heart', class: 'content__box__top__icons__heart__already')
-            - else
-              = icon('far', 'heart', class: 'content__box__top__icons__heart__yet')
+            = icon('fa', 'heart', class: 'content__box__top__icons__heart__already')
             = video.likes.count
           .content__box__top__icons__comment
             = icon('far', 'comment')

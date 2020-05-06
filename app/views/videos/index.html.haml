@@ -3,7 +3,9 @@
 .content
   .content__paginate
     = paginate(@videos)
-  = render partial: "share/video", locals: { video: @video }
+  .container
+    .row
+      = render partial: "share/video", locals: { video: @video }
   .content__paginate
     = paginate(@videos)
 

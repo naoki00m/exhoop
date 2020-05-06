@@ -69,4 +69,18 @@
       text-align: left;
     }
   }
+  .select {
+    display: flex;
+    color: white;
+    margin: 30px 10%;
+    cursor: pointer;
+    &__videos {
+      width: 50%;
+      border: solid 1px rgb(150, 150, 150);
+      &.active {
+        background-color: rgb(150, 150, 150);
+        color: black;
+      }
+    }    
+  }
 }

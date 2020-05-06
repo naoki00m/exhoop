@@ -9,8 +9,8 @@
         .account-page__inner--icon__label
           = f.label :image
         .account-page__inner--icon__input
-          - if @image.present?
-            = image_tag @image.url, class: 'account-page__inner--icon__input__image', width: '100%'
+          - if @user.image.present?
+            = image_tag @user.image.url, class: 'account-page__inner--icon__input__image', width: '100%'
           - else
             = image_tag '/images/default_user.jpg', width: '100%'
           .account-page__inner--icon__input__image2

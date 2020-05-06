@@ -5,15 +5,15 @@
     .userbox__top
       .userbox__top__left
         .userbox__top__left__icon
-          -if @image.present?
-            = image_tag @image.url, width: '100%'
+          -if @user.image.present?
+            = image_tag @user.image.url, width: '100%'
           - else
             = image_tag('/images/default_user.jpg', width: '100%')
       .userbox__top__right
         .userbox__top__right__name
-          = @name # userのname
+          = @user.name
         .userbox__top__right__option
-          - if user_signed_in? && current_user.id == @id
+          - if user_signed_in? && current_user.id == @user.id
             .userbox__top__right__option__edit
               = link_to edit_user_path(current_user) do
                 .userbox__top__right__option__edit__btn
@@ -25,7 +25,15 @@
                   = icon('fa', 'sign-out-alt')
                   = 'Logout'
     .userbox__bottom
-      = simple_format(@profile)
-  = render partial: "share/video", locals: { video: @video }
+      = simple_format(@user.profile)
+  .select
+    %div{class: "select__videos active"}
+      = "Video"
+    %div{class: "select__videos"}
+      = "Like"
+  .container
+    .row
+      = render partial: "share/video", locals: { video: @video }
+      = render partial: "share/liked_video", locals: { video: @video }
 
 = render partial: "share/footer"
