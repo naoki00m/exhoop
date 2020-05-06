@@ -20,7 +20,7 @@
                   = icon('fa', 'edit')
                   = 'Edit'
             .userbox__top__right__option__logout
-              = link_to destroy_user_session_path, method: :delete  do
+              = link_to destroy_user_session_path, method: :delete, data: { confirm: 'Do you really want to log out?' } do
                 .userbox__top__right__option__logout__btn
                   = icon('fa', 'sign-out-alt')
                   = 'Logout'

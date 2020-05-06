@@ -64,7 +64,7 @@
                   = link_to edit_video_path(@video.id), method: :get do
                     = icon('fa', 'edit')
                 .content__show__box__bottom__icons__delete
-                  = link_to video_path(@video.id), method: :delete do
+                  = link_to video_path(@video.id), method: :delete, data: { confirm: 'Do you really want to delete this?' } do
                     = icon('fa', 'trash-alt')
           .content__show__box__description
             .content__show__box__description__top
@@ -103,7 +103,7 @@
                         = link_to '#' do
                           = icon('fa', 'reply', id: "reply-btn#{comment.id}")
                       .content__show__comment__bottom__top__icons__delete
-                        = link_to video_comment_path(comment.video_id, comment.id), method: :patch do
+                        = link_to video_comment_path(comment.video_id, comment.id), method: :patch, data: { confirm: 'Do you really want to delete this?' } do
                           = icon('fa', 'trash-alt')
                     - elsif user_signed_in? && current_user.id != comment.user.id && comment.text != "This comment has been deleted."
                       .content__show__comment__bottom__top__icons__reply
@@ -166,7 +166,7 @@
                         .content__show__comment__bottom__view-reply__top__icons
                           - if user_signed_in? && current_user.id == reply.user.id
                             .content__show__comment__bottom__view-reply__top__icons__delete
-                              = link_to video_comment_path(reply.video_id, reply.id), method: :delete do
+                              = link_to video_comment_path(reply.video_id, reply.id), method: :delete, data: { confirm: 'Do you really want to delete this?' } do
                                 = icon('fa', 'trash-alt')
                           - else
                             = ''

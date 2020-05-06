@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_tags, only: [:new, :edit]
+  before_action :set_tags, only: [:new, :create, :edit, :update]
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
