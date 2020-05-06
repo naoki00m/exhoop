@@ -31,9 +31,7 @@
       = "Video"
     %div{class: "select__videos"}
       = "Like"
-  .container
-    .row
-      = render partial: "share/video", locals: { video: @video }
-      = render partial: "share/liked_video", locals: { video: @video }
+    = render partial: "share/video", locals: { video: @video }
+    = render partial: "share/liked_video", locals: { video: @video }
 
 = render partial: "share/footer"
