@@ -84,3 +84,4 @@ gem 'mini_magick'
 gem 'rubocop', require: false
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem "actionview", ">= 5.2.4.2"
