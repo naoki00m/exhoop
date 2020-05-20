@@ -70,7 +70,8 @@
             .content__show__box__description__top
               = 'Description'
             .content__show__box__description__bottom
-              = simple_format(@video.description)
+              .content__show__box__description__bottom__text
+                = simple_format(@video.description)
         .content__show__comment
           .content__show__comment__top
             = 'Comment'

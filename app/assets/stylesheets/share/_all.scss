@@ -16,3 +16,11 @@ html {
 :focus {
   outline: none;
 }
+
+::-webkit-scrollbar{
+  background-color: rgb(25, 25, 25);
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgb(60, 60, 60);
+}

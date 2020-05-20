@@ -144,9 +144,12 @@
         }
         &__bottom {
           height: 110px;
-          padding: 10px;
-          overflow: scroll;
-          word-wrap:break-word;
+          &__text {
+            height: 105px;
+            padding: 10px;
+            overflow: auto;
+            word-wrap:break-word;
+          }
         }
       }
     }
@@ -196,7 +199,7 @@
       &__bottom {
         height: 420px;
         font-size: 15px;
-        overflow: scroll;
+        overflow: auto;
         word-wrap:break-word;
         padding: 5px 15px;
         &__top {
