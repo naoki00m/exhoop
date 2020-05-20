@@ -382,7 +382,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionview (>= 5.2.4.2)
   activeadmin
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.4.1)
@@ -408,7 +407,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
   puma (~> 3.11)
-  rails (~> 5.2.4.2)
+  rails (~> 5.2.3)
   rspec
   rubocop
   sass-rails (~> 5.0)
