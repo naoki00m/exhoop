@@ -17,10 +17,14 @@ html {
   outline: none;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   background-color: rgb(25, 25, 25);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: rgb(60, 60, 60);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: rgb(25, 25, 25);
 }
